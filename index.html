@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0; padding: 0;
+    height: 100%;
+    font-family: 'Fredoka One', cursive;
+    background: linear-gradient(135deg, #ffe6f0, #e5d4ef);
+    background-size: 400% 400%;
+    animation: bgAnim 20s ease infinite;
+    overflow-x: hidden;
+    color: #ff2e7e;
+  }
+  @keyframes bgAnim {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+  .page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+  }
+  .hidden {
+    display: none !important;
+  }
+  .card {
+    background: white;
+    border-radius: 30px;
+    padding: 40px 50px;
+    box-shadow: 0 15px 50px rgba(255, 105, 180, 0.3);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 1.5s ease forwards;
+    text-align: center;
+    transition: transform 0.4s ease;
+  }
+  .card:hover {
+    transform: scale(1.01);
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .emoji {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  .emoji-row {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  .countdown {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .time-box {
+    background: #ffe0f0;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100px;
+    margin: 10px;
+    box-shadow: 0 0 15px #ffa6d1;
+    color: #d60073;
+  }
+  .time-box span {
+    display: block;
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  .msg {
+    font-size: 1.2em;
+    color: #88004e;
+    margin-top: 15px;
+  }
+  .gift-card {
+    background: linear-gradient(135deg, #fc67fa, #f4c4f3);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto 0 auto;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ffa7e5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px;
+    user-select: none;
+  }
+  .gift-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #ffa7e5;
+  }
+  #birthdayMessage {
+    font-size: 1.1rem;
+    color: #7c125f;
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 20px;
+    line-height: 1.4;
+  }
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    animation: floatHearts linear infinite;
+    opacity: 0.3;
+    font-size: 24px;
+    user-select: none;
+  }
+  @keyframes floatHearts {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(-100vh) scale(1.5);
+      opacity: 0;
+    }
+  }
+  .music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff8fcf;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    user-select: none;
+  }
+  .skip-btn {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #ff6fbc, #ff94dc);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+    transition: all 0.3s ease;
+  }
+  .skip-btn:hover {
+    background: linear-gradient(135deg, #f63c95, #ff74c4);
+    transform: scale(1.05);
+  }
+
+  /* New styles for Our Journey text bigger */
+  #page6 .card p {
+    font-size: 1.3rem;
+    margin: 10px 0;
+  }
+
+  /* ✨ By Simar styling */
+  .by-simar {
+    margin-top: 30px;
+    font-size: 1.3rem;
+    color: #ff2e7e;
+    text-shadow: 0 0 10px #ff9fdc, 0 0 20px #ff6fbf, 0 0 30px #ff4aa8;
+    font-family: 'Fredoka One', cursive;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #ff8ed8, 0 0 10px #ff4dc1, 0 0 15px #ff2e7e;
+    }
+    to {
+      text-shadow: 0 0 20px #ff9fdc, 0 0 30px #ff6fbf, 0 0 40px #ff4aa8;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 🎵 Music Button -->
+<button class="music-btn" onclick="toggleMusic()">🔊 Music On</button>
+
+<!-- 🎶 Local audio file -->
+<audio id="bg-music" loop autoplay>
+  <source src="aud.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Floating hearts
+  for(let i=0; i<30; i++){
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = `${Math.random()*100}%`;
+    heart.style.animationDuration = `${7 + Math.random()*6}s`;
+    heart.style.fontSize = `${12 + Math.random()*24}px`;
+    heart.style.top = `${Math.random()*100 + 100}vh`;
+    heart.innerText = '💖';
+    document.body.appendChild(heart);
+  }
+</script>
+
+<!-- Page 1 -->
+<div class="page" id="page1">
+  <div class="card">
+    <div class="emoji">💗 💜</div>
+    <h2>Loading something special...</h2>
+    <div class="emoji-row">🎂 ✨ 🎁 💖 🎈</div>
+  </div>
+</div>
+
+<!-- Page 2 -->
+<div class="page hidden" id="page2">
+  <div class="card">
+    <h2>Your Special Day is Almost Here 💕</h2>
+    <div class="countdown">
+      <div class="time-box"><span id="days">0</span>Days 💗</div>
+      <div class="time-box"><span id="hours">0</span>Hours 🎁</div>
+      <div class="time-box"><span id="minutes">0</span>Minutes 🎂</div>
+      <div class="time-box"><span id="seconds">0</span>Seconds ⭐</div>
+    </div>
+    <p class="msg">Just a little more... A small gift for my favorite person ❤️</p>
+    <button class="skip-btn" onclick="skipToSurprise()">🎉 Skip to Surprise!</button>
+  </div>
+</div>
+
+<!-- Page 3 -->
+<div class="page hidden" id="page3">
+  <div class="card">
+    <h2>Happy Birthday Gyaana! 🎂✨💖</h2>
+    <h3>To My Cutiepie <strong>Kiddo</strong></h3>
+    <div class="gift-card" onclick="showMessage()">
+      <p>Tap to open your card 🎁</p>
+    </div>
+    <div id="birthdayMessage" class="hidden">
+      <p>May every wish you make today come true.<br>You deserve the world, and I’ll always be here to remind you of that.</p>
+      <p><strong>Let’s always stay like this… together, forever 🧸</strong></p>
+      <button class="skip-btn" onclick="goToPage(4)">Next ➡️</button>
+    </div>
+  </div>
+</div>
+
+<!-- Page 4 -->
+<div class="page hidden" id="page4">
+  <div class="card">
+    <h2>💌 A Love Letter</h2>
+    <p>My love Gyaana,</p>
+    <p>You are the sweetest part of my life. Every second with you is a treasure. I could write a thousand pages and still not describe how much I love you kiddo...</p>
+    <p>Happy Birthday, my heart. I’m so lucky to call you mine. 💗</p>
+    <button class="skip-btn" onclick="goToPage(5)">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Page 5 -->
+<div class="page hidden" id="page5">
+  <div class="card">
+    <h2>💖 10 Reasons I Love You</h2>
+    <ol style="text-align:left; padding-left:20px;">
+      <li>Your beautiful smile 😍</li>
+      <li>The way you laugh 🥰</li>
+      <li>Your kind heart 💕</li>
+      <li>Your silly jokes 😆</li>
+      <li>How you always care 🌸</li>
+      <li>Your hugs – they’re healing 🤗</li>
+      <li>The way you say my name 💞</li>
+      <li>Your sleepy face 😴</li>
+      <li>Your loyalty & love 🐻</li>
+      <li>You’re just… YOU 💫</li>
+    </ol>
+    <button class="skip-btn" onclick="goToPage(6)">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Page 6 -->
+<div class="page hidden" id="page6">
+  <div class="card">
+    <h2>📖 Our Journey</h2>
+    <p><strong>💬 First Chat:</strong> June 2024</p>
+    <p><strong>💑 First Date:</strong> 25 May 2025</p>
+    <p><strong>🤗 First Hug:</strong> 25 May 2025</p>
+    <p><strong>💍 Propose Date:</strong> 5 April 2025</p>
+    <p>And the story is just beginning... 💞</p>
+    <button class="skip-btn" onclick="goToPage(7)">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Page 7 -->
+<div class="page hidden" id="page7">
+  <div class="card">
+    <h2>🌈 Our Wishlist</h2>
+    <ul style="text-align:left; padding-left:20px;">
+      <li>🌅 Watch a sunrise together</li>
+      <li>🍨 Eat ice cream on a rainy day</li>
+      <li>🎧 Make a playlist just for us</li>
+      <li>🛏️ Sleep in a pillow fort</li>
+      <li>🗺️ Travel somewhere random (First Paris)</li>
+    </ul>
+    <button class="skip-btn" onclick="goToPage(8)">Next ➡️</button>
+  </div>
+</div>
+
+<!-- Page 8 -->
+<div class="page hidden" id="page8">
+  <div class="card">
+    <h2>🎁 Final Surprise</h2>
+    <p>You are my forever, my always, my everything. 💍</p>
+    <p>I hope this little website made you smile. You deserve the universe and more.</p>
+    <p>Never forget: You are loved beyond words. 💖</p>
+    <p><strong>HAPPY BIRTHDAY, MY LOVE! MY KIDDO! 🎂🎈</strong></p>
+    <span style="font-size:2.5rem;">💗💗💗</span>
+    <div class="by-simar">By Simar 💫</div>
+  </div>
+</div>
+
+<script>
+  let musicPlaying = true;
+  const music = document.getElementById('bg-music');
+  const musicBtn = document.querySelector('.music-btn');
+  function toggleMusic(){
+    if(musicPlaying){
+      music.pause();
+      musicBtn.innerText = '🔇 Music Off';
+    } else {
+      music.play();
+      musicBtn.innerText = '🔊 Music On';
+    }
+    musicPlaying = !musicPlaying;
+  }
+
+  function showMessage(){
+    const msg = document.getElementById('birthdayMessage');
+    if(msg.classList.contains('hidden')){
+      msg.classList.remove('hidden');
+    }
+  }
+
+  function skipToSurprise(){
+    page2.classList.add('hidden');
+    page3.classList.remove('hidden');
+  }
+
+  const countdownDate = new Date();
+  countdownDate.setMonth(9); // October
+  countdownDate.setDate(21); // 21st
+  countdownDate.setHours(0,0,0,0);
+  const now = new Date();
+  if(countdownDate < now){
+    countdownDate.setFullYear(now.getFullYear() + 1);
+  }
+
+  const page1 = document.getElementById('page1');
+  const page2 = document.getElementById('page2');
+  const page3 = document.getElementById('page3');
+
+  setTimeout(() => {
+    page1.classList.add('hidden');
+    page2.classList.remove('hidden');
+  }, 3500);
+
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+
+  function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = countdownDate.getTime() - now;
+
+    if(distance < 0){
+      page2.classList.add('hidden');
+      page3.classList.remove('hidden');
+      clearInterval(countdownInterval);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    daysEl.innerText = days;
+    hoursEl.innerText = hours.toString().padStart(2, '0');
+    minutesEl.innerText = minutes.toString().padStart(2, '0');
+    secondsEl.innerText = seconds.toString().padStart(2, '0');
+  }
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  function goToPage(pageNum) {
+    const allPages = document.querySelectorAll('.page');
+    allPages.forEach(p => p.classList.add('hidden'));
+    const target = document.getElementById('page' + pageNum);
+    if (target) target.classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
